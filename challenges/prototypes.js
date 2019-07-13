@@ -6,10 +6,10 @@
   Create a constructor function named CuboidMaker that accepts properties for length, width, and height
 */
 
-
 /* == Step 2: Volume Method ==
   Create a method using CuboidMaker's prototype that returns the volume of a given cuboid's length, width, and height
-  
+
+
   Formula for cuboid volume: length * width * height
 */
 
@@ -26,8 +26,35 @@
   Add properties and values of length: 4, width: 5, and height: 5 to cuboid.   
 */
 
+
+function CuboidMaker(length, width, height) {
+  this.length = length,
+  this.width = width,
+  this.height = height
+}
+
+
+CuboidMaker.prototype.volume = function() {
+  const length = parseInt(`${this.length}`); // created variable from integer
+  const width =  parseInt(`${this.width}`);
+  const height = parseInt(`${this.height}`);
+  return length * width * height;
+}
+  
+CuboidMaker.prototype.surfaceArea = function() {
+  const length = parseInt(`${this.length}`); // created variable from integer
+  const width =  parseInt(`${this.width}`);
+  const height = parseInt(`${this.height}`);
+  return 2 * (length * width + length * height + width * height)
+}
+
+
+const cuboid = new CuboidMaker(5, 4, 5) // why coming in as string?
+
+
 // Test your volume and surfaceArea methods by uncommenting the logs below:
-// console.log(cuboid.volume()); // 100
-// console.log(cuboid.surfaceArea()); // 130
 
+console.log(cuboid.volume()); // 100
+console.log(cuboid.surfaceArea()); // 130
 
+// console.log(cuboid)
